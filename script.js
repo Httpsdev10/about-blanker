@@ -14,7 +14,7 @@ function openInBlank() {
     newWindow.document.write(`
         <!DOCTYPE html>
         <html lang='en'>
-        <head><title>Embedded Page</title></head>
+        <head><title>about:blank</title></head>
         <body style='margin:0;'>
             <iframe src='${url}' style='width:100vw; height:100vh; border:none;'></iframe>
         </body>
