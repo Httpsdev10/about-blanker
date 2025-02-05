@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed Website</title>
+    <title>a:b</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,7 +29,7 @@
     </style>
 </head>
 <body>
-    <h2>Embed a Website in about:blank</h2>
+    <h2>about:blank opener</h2>
     <input type="text" id="urlInput" placeholder="Enter website URL">
     <button onclick="openInBlank()">Enter</button>
 
@@ -41,10 +41,7 @@
             }
             
             const newWindow = window.open("about:blank", "_blank");
-            const doc = newWindow.document;
-            doc.open();
-            doc.write(`<!DOCTYPE html><html lang='en'><head><title>Embedded Page</title></head><body style='margin:0;'><script>document.write('<iframe src=\'${window.opener.document.getElementById("urlInput").value}\' style=\'width:100vw; height:100vh; border:none;\'></iframe>');<\/script></body></html>`);
-            doc.close();
+            newWindow.location.href = url; // Redirect instead of embedding
         }
     </script>
 </body>
