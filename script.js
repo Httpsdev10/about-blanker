@@ -22,3 +22,4 @@ function openInBlank() {
     `);
     newWindow.document.close();
 }
+
