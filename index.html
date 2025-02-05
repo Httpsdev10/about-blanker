@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,9 +41,22 @@
             }
             
             const newWindow = window.open("about:blank", "_blank");
-            const doc = newWindow.document;
-            doc.write(`<!DOCTYPE html><html lang='en'><head><title>Embedded Page</title></head><body style='margin:0;'><iframe src='${url}' style='width:100vw; height:100vh; border:none;'></iframe></body></html>`);
-            doc.close();
+            if (!newWindow) {
+                alert("Popup blocked! Allow popups for this site.");
+                return;
+            }
+
+            newWindow.document.open();
+            newWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang='en'>
+                <head><title>Embedded Page</title></head>
+                <body style='margin:0;'>
+                    <iframe src='${url}' style='width:100vw; height:100vh; border:none;'></iframe>
+                </body>
+                </html>
+            `);
+            newWindow.document.close();
         }
     </script>
 </body>
